@@ -3,8 +3,9 @@ import React from 'react';
 const Message = () => {
   return (
     <div className="message">
-      <span>User</span> - <em><small>14:59:00</small></em>
-      <p>Content</p>
+      <span>{this.props.message.author}</span> -
+      <em><small>{this.props.message.created_at}</small></em>
+      <p>{this.props.message.content}</p>
     </div>
   );
 };
