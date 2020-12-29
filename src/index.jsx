@@ -7,10 +7,25 @@ import { createStore, combineReducers } from 'redux';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
+import usernameReducer from './reducers/username_reducer';
+import channelsReducer from './reducers/channels_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
+import messagesReducer from './reducers/messages_reducer';
+
+const username = window.prompt("Enter your username", "Juan");
+const initialState = {
+  username: username,
+  channels: ["general", "react", "paris"],
+  selectedChannel: "general",
+  messages: []
+};
 
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  username: usernameReducer,
+  channels: channelsReducer,
+  selectedChannel: selectedChannelReducer,
+  messages: messagesReducer
 });
 
 // render an instance of the component in the DOM
