@@ -14,9 +14,9 @@ import channelsReducer from './reducers/channels_reducer';
 import selectedChannelReducer from './reducers/selected_channel_reducer';
 import messagesReducer from './reducers/messages_reducer';
 
-const username = window.prompt("Enter your username", "Juan");
+// const username = window.prompt("Enter your username", "Juan");
 const initialState = {
-  username: username,
+  username: 'Juan',
   channels: ["general", "react", "paris"],
   selectedChannel: "general",
   messages: []
