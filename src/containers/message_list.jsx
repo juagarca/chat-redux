@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Message from '../components/message';
+import MessageForm from '../containers/message_form';
+
 import fetchMessages from '../actions';
 
 class MessageList extends Component {
@@ -13,15 +15,20 @@ class MessageList extends Component {
   render() {
     return (
       <div className="message_list">
-        <div className="name">
-          <h1>Channel #{this.props.selectedChannel}</h1>
+        <div>
+          <div className="channel-name">
+            <h1>Channel #{this.props.selectedChannel}</h1>
+          </div>
+          <div className="messages">
+            {
+              this.props.messages.map((message) => {
+                return <Message key={message.id} message={message} />;
+              })
+            }
+          </div>
         </div>
-        <div className="messages">
-          {
-            this.props.messages.map((message) => {
-              return <Message key={message.id} message={message} />;
-            })
-          }
+        <div className="message-box">
+          <MessageForm />
         </div>
       </div>
     );

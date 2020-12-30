@@ -9,8 +9,26 @@ body {
 .message_list {
   margin: 0 10px 0 10px;
 
-  .name {
+  .channel-name {
     border-bottom: 1px solid #A3A9B3;
+  }
+
+  .message-box {
+    margin-top: 12px;
+    border-top: 1px solid #A3A9B3;
+
+    form {
+      margin-top: 12px;
+
+      input {
+        width: 84%;
+      }
+
+      button {
+        margin-left: 10px;
+        width: 15%;
+      }
+    }
   }
 }
 
