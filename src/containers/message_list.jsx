@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Message from '../components/message';
 import MessageForm from '../containers/message_form';
 
-import fetchMessages from '../actions';
+import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
