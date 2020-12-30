@@ -9,7 +9,19 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.fetchMessages('general');
+    this.fetchMessagesFromSelectedChannel();
+  }
+
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessagesFromSelectedChannel, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
+
+  fetchMessagesFromSelectedChannel = () => {
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
