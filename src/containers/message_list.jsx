@@ -17,7 +17,9 @@ class MessageList extends Component {
   }
 
   componentDidUpdate() {
+
     this.list.scrollTop = this.list.scrollHeight;
+    console.log(this.list.scrollTop);
   }
 
   componentWillUnmount() {
@@ -35,7 +37,7 @@ class MessageList extends Component {
           <div className="channel-name">
             <h1>Channel #{this.props.selectedChannel}</h1>
           </div>
-          <div className="messages" ref={(list) => { this.list = list; }}>
+          <div className="messages" ref={(list) => { this.list = list; }} >
             {
               this.props.messages.map((message) => {
                 return <Message key={message.id} message={message} />;

@@ -13,6 +13,11 @@ body {
     border-bottom: 1px solid #A3A9B3;
   }
 
+  .messages {
+    max-height: 520px;
+    overflow: auto;
+  }
+
   .message-box {
     margin-top: 12px;
     border-top: 1px solid #A3A9B3;
@@ -25,7 +30,6 @@ body {
       }
 
       button {
-        // margin-left: 10px;
         width: 10%;
       }
     }
