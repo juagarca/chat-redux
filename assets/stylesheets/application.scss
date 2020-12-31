@@ -2,19 +2,43 @@ body {
   font-family: Helvetica;
 }
 .app {
-  margin-top: 20px;
+  display: flex;
+  // margin-top: 20px;
   margin-bottom: 20px;
+
 }
 
-.message_list {
-  margin: 0 10px 0 10px;
+.channel-list {
+  width: 20%;
+  background-color: #F4F4F4;
+  height: 100vh;
+  padding: 10px 0 0 20px;
+
+  .active-channel {
+    font-weight: bolder;
+  }
+
+  ul {
+    list-style: none;
+    -webkit-padding-start: 0px;
+  }
+
+  li {
+    cursor: pointer;
+    padding-top: 10px;
+  }
+}
+
+.message-list {
+  padding: 10px 20px 0 20px;
+  width: 80%;
 
   .channel-name {
     border-bottom: 1px solid #A3A9B3;
   }
 
   .messages {
-    max-height: 510px;
+    max-height: 520px;
     overflow: auto;
   }
 

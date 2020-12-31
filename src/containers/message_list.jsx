@@ -17,9 +17,8 @@ class MessageList extends Component {
   }
 
   componentDidUpdate() {
-
     this.list.scrollTop = this.list.scrollHeight;
-    console.log(this.list.scrollTop);
+    // console.log(this.list.scrollTop);
   }
 
   componentWillUnmount() {
@@ -32,10 +31,10 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="message_list">
+      <div className="message-list">
         <div>
           <div className="channel-name">
-            <h1>Channel #{this.props.selectedChannel}</h1>
+            <h3><strong>Channel #{this.props.selectedChannel}</strong></h3>
           </div>
           <div className="messages" ref={(list) => { this.list = list; }} >
             {
