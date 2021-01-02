@@ -12,8 +12,8 @@ class ChannelList extends Component {
     }
   }
 
-  handleClick = (event) => {
-    this.props.changeChannel(event.currentTarget.innerText);
+  handleClick = (channel) => {
+    this.props.changeChannel(channel);
   }
 
   showChannel = (channel) => {
@@ -22,9 +22,9 @@ class ChannelList extends Component {
       <li
         key={channel}
         className={isSelectedChannel ? 'active-channel' : null}
-        onClick={this.handleClick}
+        onClick={() => this.handleClick(channel)}
       >
-        {channel}
+        #{channel}
       </li>
     );
   }

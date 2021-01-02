@@ -19,7 +19,6 @@ function username() {
   if (username === "") {
     return `anonymous${Math.floor(10 + (Math.random() * 90))}`;
   }
-
   return username;
 }
 
