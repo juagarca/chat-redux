@@ -13,9 +13,17 @@ import '../assets/stylesheets/application.scss';
 import selectedChannelReducer from './reducers/selected_channel_reducer';
 import messagesReducer from './reducers/messages_reducer';
 
-const username = window.prompt("Enter your username", "Juan");
+
+function username() {
+  const username = window.prompt("Enter your username, or leave it blank to be anonymous");
+  if (username === "") {
+    return `anonymous${Math.floor(10 + (Math.random() * 90))}`;
+  }
+  return username;
+}
+
 const initialState = {
-  username: username,
+  username: username(),
   channels: ["general", "react", "paris"],
   selectedChannel: "general",
   messages: []
