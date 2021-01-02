@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { changeChannel } from '../actions';
 
 
 class ChannelList extends Component {
+  handleClick = (event) => {
+    this.props.changeChannel(event.currentTarget.innerText);
+  }
 
   showChannel = (channel) => {
     const isSelectedChannel = channel === this.props.selectedChannel;
@@ -10,6 +16,7 @@ class ChannelList extends Component {
       <li
         key={channel}
         className={isSelectedChannel ? 'active-channel' : null}
+        onClick={this.handleClick}
       >
         {channel}
       </li>
@@ -40,4 +47,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(ChannelList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { changeChannel: changeChannel }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
