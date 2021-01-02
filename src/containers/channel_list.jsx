@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { changeChannel } from '../actions';
+import { changeChannel, fetchMessages } from '../actions';
 
 
 class ChannelList extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedChannel !== this.props.selectedChannel) {
+      this.props.fetchMessages(nextProps.selectedChannel);
+    }
+  }
+
   handleClick = (event) => {
     this.props.changeChannel(event.currentTarget.innerText);
   }
@@ -49,7 +55,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { changeChannel: changeChannel }, dispatch);
+    {
+      changeChannel: changeChannel,
+      fetchMessages: fetchMessages,
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
