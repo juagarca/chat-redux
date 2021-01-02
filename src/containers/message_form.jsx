@@ -13,6 +13,14 @@ class MessageForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.box.focus();
+  }
+
+  componentDidUpdate() {
+    this.box.focus();
+  }
+
   handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
@@ -28,7 +36,13 @@ class MessageForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="form-inline">
-        <input type="text" value={this.state.value} className="form-control" onChange={this.handleChange} />
+        <input
+          type="text"
+          value={this.state.value}
+          className="form-control"
+          onChange={this.handleChange}
+          ref={(input) => { this.box = input; }}
+        />
         <button type="submit" className="btn btn-danger">Send</button>
       </form>
     );
